@@ -2,17 +2,17 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
-  const addOne = () => {
-    // write code here
+  const addOne = () => { 
+   setCount(prev => prev + 1);
   };
 
   const add100 = () => {
-    // write code here
+    setCount(prev => prev + 100);
   };
 
-  // DON'T change the code below
+  // DON'T change the code belowэ
   const increase = () => {
     if (count % 5 === 0) {
       add100();
@@ -39,3 +39,13 @@ export const App = () => {
     </div>
   );
 };
+
+
+// У тебя есть компонент App с заголовком и тремя кнопками. 
+// Нужно реализовать функции addOne и add100, чтобы кнопки работали следующим образом:
+
+  
+
+// – Кнопка **Add 1** вызывает метод addOne и прибавляет 1 к счётчику.
+
+// – Кнопка **Add 100** вызывает метод add100 и прибавляет 100 к счётчику.
