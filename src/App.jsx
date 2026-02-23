@@ -4,21 +4,20 @@ import './App.scss';
 export const App = () => {
   const [count, setCount] = useState(0);
 
-  const addOne = () => { 
-   setCount(prev => prev + 1);
+  const addOne = () => {
+    setCount(prev => prev + 1);
   };
 
   const add100 = () => {
     setCount(prev => prev + 100);
   };
 
-  // DON'T change the code belowэ
   const increase = () => {
-    if (count % 5 === 0) {
-      add100();
-    }
+    setCount(prev => {
+      const next = prev + 1;
 
-    addOne();
+      return next % 5 === 0 ? next + 100 : next;
+    });
   };
 
   return (
@@ -40,12 +39,9 @@ export const App = () => {
   );
 };
 
+// – Кнопка **Increase** сначала вызывает addOne, а затем, если
+// текущее значение счётчика делится на 5 без остатка, дополнительно вызывает add100.
 
-// У тебя есть компонент App с заголовком и тремя кнопками. 
-// Нужно реализовать функции addOne и add100, чтобы кнопки работали следующим образом:
+// То есть третья кнопка должна увеличивать счётчик так:
 
-  
-
-// – Кнопка **Add 1** вызывает метод addOne и прибавляет 1 к счётчику.
-
-// – Кнопка **Add 100** вызывает метод add100 и прибавляет 100 к счётчику.
+// 101, 102, 103, 104, 105, 206, 207, 208, 209, 210, 311 …
